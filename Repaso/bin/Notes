@@ -1,0 +1,51 @@
+				
+//escribir			
+				int resultado = chooser.showSaveDialog(Ventana.this);
+				if (resultado == JFileChooser.APPROVE_OPTION) {
+					JOptionPane.showMessageDialog(null, "Guardado en: " + chooser.getSelectedFile().getPath());
+					titulo = chooser.getSelectedFile().getName();
+					Ventana.this.setTitle(titulo);
+					String path = chooser.getSelectedFile().getPath() + ".hw26";
+					try {
+						fw = new FileWriter(path);
+						texto.write(fw);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				}	
+//leer
+int resultado = chooser.showOpenDialog(Ventana.this);
+				if (resultado == JFileChooser.APPROVE_OPTION) {
+					JOptionPane.showMessageDialog(null, "Cargado desde: " + chooser.getSelectedFile().getPath());
+					texto.setText("");
+					archivo = chooser.getSelectedFile();
+					titulo = chooser.getSelectedFile().getName();
+					Ventana.this.setTitle(titulo);
+					BufferedReader in;
+					if (archivo != null) {
+						try {
+							in = new BufferedReader(new FileReader(archivo));
+							String linea = in.readLine();
+							while(linea != null){
+							  texto.append(linea + "\n");
+							  linea = in.readLine();
+							}
+						} catch (FileNotFoundException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+				}
+
+//clases abstractas
+modelo de una clase
+no se pueden inicializar
+se heredan
+
+//dialogo de seleccion de color
+JColorChooser.showDialog(PanelBotones.this, "elige un colorin", Color.BLACK);
+					
+				
