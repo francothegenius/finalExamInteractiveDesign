@@ -12,6 +12,7 @@ public class Main {
 		String[] ejemploRecortado = ejemplo.split(",");
 		for(int i = 0; i < ejemploRecortado.length; i++) {
 			System.out.println(ejemploRecortado[i]);
+			
 		}
 	}
 }
